@@ -1,0 +1,160 @@
+<!--Carrusel-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 p-0">
+      <div class="carousel slide" id="carouselExampleIndicators" data-ride="carousel" data-pause="hover">
+        <div id="carouselExampleIndicators container-fluid" class="carousel slide carusel mt-4" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner carusel">
+            <div class="carousel-item active carusel" data-interval="50000">
+              <img src="../../../assets/carrusel/img1.png" class="d-block  carusel img-fluid" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Lo mejor en consolas, computadoras, celulares!</h5>
+                <p>Visitanos</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-interval="3000">
+              <img src="../../../assets/carrusel/img11.png" class="d-block w-100 img-fluid " alt="...">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+              <img src="../../../assets/carrusel/img12.png" class="d-block w-100 img-fluid" alt="...">
+            </div>
+            <div class="carousel-item" data-interval="3000">
+              <img src="../../../assets/carrusel/img13.png" class="d-block w-100 img-fluid" alt="...">
+              </div>
+            <div class="carousel-item" data-interval="3000">
+              <img src="../../../assets/carrusel/img15.png" class="d-block w-100 img-fluid" alt="...">
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fin de Carrusel-->
+<!--Marca-->
+
+<div class="container-fluid mt-5" >
+  <div class="row">
+    <div class="col-12 justify-content-center ico">
+      <h2 class="text-center"><strong>SOMO DISTRIBUIDORES AUTORIZADOS DE LAS SIGUIENTES MARCAS</strong></h2>
+    </div>
+  </div>
+  <hr>
+  <div class="row my-5" >
+      <div class="col-12 col-md-2 ico"  data-aos="flip-left" data-aos-duration="2000">
+        <img class="w-100 pt-4" src="../../../assets/carrusel/samsung.png" alt="samsung">
+      </div>
+      <div class="col-12 col-md-2 ico" data-aos="flip-right" data-aos-duration="2000">
+        <img class="  w-75" src="../../../assets/carrusel/dell.png" alt="dell">
+      </div>
+      <div class="col-12 col-md-2 ico" data-aos="flip-left" data-aos-duration="2000">
+        <img class=" w-75" src="../../../assets/carrusel/hp.png" alt="hp">
+      </div>
+      <div class="col-12 col-md-2 ico" data-aos="flip-right" data-aos-duration="2000">
+        <img class=" w-75" src="../../../assets/carrusel/lg.png" alt="lg">
+      </div>
+      <div class="col-12 col-md-2 ico" data-aos="flip-left" data-aos-duration="2000">
+        <img class=" w-75" src="../../../assets/carrusel/marca.png" alt="huawei">
+      </div>
+      <div class="col-12 col-md-2 ico" data-aos="flip-right" data-aos-duration="2000">
+        <img class=" w-100" src="../../../assets/carrusel/logoxiaomi.png" alt="xiaomi">
+      </div>
+  </div>
+  <hr>
+</div>
+<!--Fin Marcas-->
+<!-- Productos -->
+<section id="productos" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 justify-content-center ico">
+        <h2 class="text-center"><strong> Nuestros Productos</strong></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4 ico" *ngFor="let producto of productos | paginate: {itemsPerPage: 12, currentPage: pageActual}; let i = index"> 
+        <div class="card_book">
+          <div class="card">
+            <div class="card-body text-center">
+              <p>
+                 <img class="img-fluid" src="{{producto.imagen}}" alt="{{producto.nombre}}">
+              </p>
+              <h4 routerLink="/producto/{{producto.id}}" class="card-title">{{producto.nombre}}</h4>
+              <div class="container-precio-marca text-center">
+                <p class="badge precio">
+                  {{producto.precio}} Bs.
+                </p>
+                <p class="badge marca">
+                  {{producto.marca}}
+                </p>
+              </div>
+              <!--acordeon-->
+              
+              <!--fin acordeon-->
+              <br>
+              <a href="{{producto.link_tienda}}" class="btn btn-block  text-center comprar" target="_blank">Comprar <span class="fa fa-shopping-cart"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <pagination-controls class="text-right" (pageChange)="pageActual =$event"></pagination-controls>
+  </div>
+</section>
+<!-- Fin  Productos-->
+<!--tipo-->
+<div class="container-fluid mt-5">
+  <div class="row" data-aos="zoom-in-up" data-aos-duration="1000">
+    <div class="col-12 justify-content-center ico">
+      <h2 class="text-center"><strong>¿QIE TE OFRECEMOS?</strong></h2>
+    </div>
+  </div>
+  <hr>
+  <div class="row my-5" data-aos="zoom-in-up" data-aos-duration="1000">
+    <div class="col-12 col-md-3 ico">
+      <i class="fa fa-tv ic"></i>
+      <h3>Smartv's</h3>
+      <P>Lo mejor en televisores inteligentes, las mejores marcas en la actualidad.</P>
+    </div>
+    <div class="col-12 col-md-3 ico" data-aos="zoom-in-up" data-aos-duration="1000">
+      <i class="fa fa-laptop ic"></i>
+      <h3>Laptop's - Pc's</h3>
+      <P>Una gran variedad en Laptop's y Pc's con distitas características, la tecnología más actual en distintas marcas.</P>
+    </div>
+    <div class="col-12 col-md-3 ico" data-aos="zoom-in-up" data-aos-duration="1000">
+      <i class="fa fa-gamepad ic"></i> 
+      <h3>Consolas</h3>
+      <P>Los mejores productos en consolas del mercado Play Station, Xbox, Nintendo, accesorios y mucho más.</P>
+    </div>
+    <div class="col-12 col-md-3 ico" data-aos="zoom-in-up" data-aos-duration="1000">
+      <i class="fa fa-mobile ic"></i>
+      <h3>Celulares</h3>
+      <P>Podrás obtener los Celulares que son tendencia en el mercado, lo más actual en distintas marcas y modelos.</P>
+    </div>
+  </div>
+  <hr>
+</div>
+<!--Fin -tipo-->
+<!--footer-->
+<footer id="myFooter">
+    <p class="footer-copyright text-center">© 2019 Copyright TecShop
+      <img class="logo" src="../../../assets/Tecshop.png" alt="{{app_name}}">
+    </p>
+</footer>
+<!-- fin footer-->

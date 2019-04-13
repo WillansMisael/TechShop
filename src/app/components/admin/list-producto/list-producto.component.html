@@ -1,0 +1,48 @@
+<section class="row my-5">
+  <div class="col pb-5">
+    <h2 class="text-center mt-2"><strong>Lista de Productos</strong></h2>
+    <button class="btn btn-primary btn-block float-right text-center " data-toggle="modal" data-target="#modalProducto">Agregar producto <i class="fa fa-plus"></i></button>
+    <table class="table table-hover tabla">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Marca</th>
+          <!--<th scope="col">Ficha Tecnica</th>-->
+          <th scope="col">Precio</th>
+          <th scope="col">Destacado</th>
+          <th scope="col">&nbsp;</th>
+          <th scope="col">&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productos | paginate: {itemsPerPage: 5, currentPage: pageActual}; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.marca}}</td>
+          <!--<td>{{producto.ficha_tecnica}}</td>-->
+          <td>{{producto.precio}}</td>
+          <td>{{producto.destacado == 1 ? 'Sí': 'No'}}</td>
+          <td *ngIf="producto.userUid == userUid || isAdmin == true; else noOwner">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modalProducto" (click)="onPreUpdateProducto(producto)">Actualizar</button>
+          </td>
+          <ng-template #noOwner>
+            <td>
+              <button class="btn btn-secondary" disabled="true"></button>
+            </td>
+          </ng-template>
+          <td *ngIf="isAdmin == true; else noAdmin">
+            <button class="btn btn-danger" (click)="onDeleteProducto(producto.id)">Eliminar</button>
+          </td>
+          <ng-template #noAdmin>
+            <td>
+              <button class="btn btn-danger" disabled="true">Eliminar</button>
+            </td>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual =$event"></pagination-controls>
+  </div>
+</section>
+<app-modal [userUid]="userUid"></app-modal>

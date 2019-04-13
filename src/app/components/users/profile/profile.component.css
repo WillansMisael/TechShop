@@ -1,0 +1,36 @@
+.main-section {
+  border: 1px solid #007bff;
+  background: #fff;
+}
+.profile-header {
+  background: #005b87;
+  height: 150px;
+  color: white;
+}
+.user-detail {
+  margin: -50px 0 30px 0;
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+.user-details h5 {
+  margin: 15px 0 5px 0;
+}
+.btn-social{
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+  border-color: rgba(0,0,0,0.2);
+}
+
+.btn-facebook{
+  background: #3b5998;
+}
+.btn-google{
+  background: #dd4b39;
+}

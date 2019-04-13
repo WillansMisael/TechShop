@@ -1,0 +1,80 @@
+<div class="modal fade" id="modalProducto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ !this.dataApi.selectedProducto ? 'Nuevo Producto' : 'Actualizar Producto'}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body px-3">
+        <form name="formProducto" #formProducto="ngForm" (ngSubmit)="onSaveProducto(formProducto)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedProducto.id">
+          <input type="hidden" name="userUid" [value]="userUid">
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="this.dataApi.selectedProducto.nombre">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-4 col-md-4">
+              <label for="marca">Marca</label>
+              <select name="marca" class="form-control" [(ngModel)]="this.dataApi.selectedProducto.marca">
+                <option value="Samsung"></option>
+                <option value="Iphone">Iphone</option>
+                <option value="Xiaomi">Xiaomi</option>
+                <option value="LG">LG</option>
+                <option value="Sony">Sony</option>
+                <option value="Hp">Hp</option>
+                <option value="Dell">Dell</option>
+                <option value="Mac">Mac</option>
+                <option value="Huawei">Huawei</option>
+                <option value="Google">Google</option>
+                <option value="Toshiba">Toshiba</option>
+                <option value="Lenovo">Lenovo</option>
+                <option value="Microsoft">Microsoft</option>
+                <option value="JBL">JBL</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+            <div class="form-group col-4 col-md-4">
+              <label for="precio">Precio</label>
+              <input type="text" name="precio" class="form-control" placeholder="0,00 Bs." [(ngModel)]="this.dataApi.selectedProducto.precio">
+            </div>
+              <div class="form-group col-4 col-md-4">
+                <label for="destacado">Destacado</label>
+                <select name="destacado" class="form-control" [(ngModel)]="this.dataApi.selectedProducto.destacado">
+                  <option value="1">Sí</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-4 col-md-4">
+              <label for="ficha_tecnica">Ficha Téc.</label>
+              <input type="text" name="ficha_tecnica" class="form-control" placeholder="Ficha Técnica" [(ngModel)]="this.dataApi.selectedProducto.ficha_tecnica">
+            </div>
+            <div class="form-group col-4 col-md-4">
+              <label for="imagen">Imagen</label>
+              <input type="text" name="imagen" class="form-control" placeholder="Imagen" [(ngModel)]="this.dataApi.selectedProducto.imagen">
+            </div>
+            <div class="form-group col-4 col-md-4">
+              <label for="link_tienda">Link Tienda</label>
+              <input type="text" name="link_tienda" class="form-control" placeholder="Link Tienda" [(ngModel)]="this.dataApi.selectedProducto.link_tienda">
+            </div>
+          </div>
+          <div class="form-group mb-0">
+            <label for="descripcion" class="col-form-label">Descripción:</label>
+            <textarea class="form-control" name="descripcion" [(ngModel)]="this.dataApi.selectedProducto.descripcion"></textarea>
+          </div>
+          <div class="modal-footer py-0">
+            <button type="button" class="btn btn-danger" #btnClose data-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-success">Guardar</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

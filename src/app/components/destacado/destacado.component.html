@@ -1,0 +1,70 @@
+<section id="productos" class="mt-5 pt-5">
+  <h3 class="text-center">
+    <strong>Productos destacados en TecShop </strong>
+    <i class="fa fa-tv">&nbsp;</i>
+    <i class="fa fa-laptop"></i>
+    <i class="fa fa-gamepad">&nbsp;</i>
+    <i class="fa fa-mobile">&nbsp;</i>
+  </h3>
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let producto of productos | paginate: {itemsPerPage: 9, currentPage: pageActual}; let i = index">
+        <div class="card_producto">
+          <div class="card">
+            <div class="card-body">
+              <p>
+                <img class="img-fluid" src="{{producto.imagen}}" alt="{{producto.nombre}}">
+              </p>
+              <h4 routerLink="/producto/{{producto.id}}" class="card-title">{{producto.nombre}}</h4>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header py-0" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false"
+                        aria-controls="collapseOne">
+                        Descripción
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                      {{producto.descripcion}}
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header py-0" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Ficha Técnica
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                      {{producto.ficha_tecnica}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <div class="text-center">
+                <p class="badge precio">
+                  {{producto.precio}} Bs.
+                </p>
+                <p class="badge marca">
+                   {{producto.marca}}
+                </p>
+              </div>
+              <a href="{{producto.link_tienda}}" class="btn btn-block btn-primary comprar" target="_blank">Comprar <span class="fa fa-shopping-cart"></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <pagination-controls class="text-right" (pageChange)="pageActual =$event"></pagination-controls>
+  </div>
+</section>

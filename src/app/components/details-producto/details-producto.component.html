@@ -1,0 +1,68 @@
+<div class="container details">
+  <div class="row">
+    <div class="col-sm" data-aos="fade-up" data-aos-duration="3000">
+      <div class="card_book">
+        <div class="card">
+          <div class="card-body text-center">
+              <img class="img-fluid imagen" src="{{producto.imagen}}" alt="{{producto.nombre}}">
+            <h4 class="card-title">{{producto.nombre}}</h4>
+            <div class="container-precio-marca text-center">
+              <p class="badge precio">
+                {{producto.precio}} Bs.
+              </p>
+              <p class="badge marca">
+                {{producto.marca}}
+              </p>
+            </div>
+            <a href="{{producto.link_tienda}}" target="_blank" class="btn btn-block btn-danger comprar">Comprar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm px-0">
+      <div class="col-md-12 mb-12 mt-12" data-aos="fade-down" data-aos-duration="3000">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs md-tabs nav-justified  color">
+          <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#panel1" role="tab" aria-selected="">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Descripción</font>
+              </font>
+            </a>
+          </li>
+          <li class="nav-item waves-effect waves-light">
+            <a class="nav-link" data-toggle="tab" href="#panel2" role="tab" aria-selected="false">
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">Ficha Técnica</font>
+              </font>
+            </a>
+          </li>
+        </ul>
+        <!-- Tab panels -->
+        <div class="tab-content card">
+          <!--Panel 1-->
+          <div class="tab-pane fade in px-2" id="panel1" role="tabpanel">
+            <br>
+            <p>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">{{producto.descripcion}}
+                </font>
+              </font>
+            </p>
+          </div>
+          <!--/.Panel 1-->
+          <!--Panel 2-->
+          <div class="tab-pane fade in px-2" id="panel2" role="tabpanel">
+            <br>
+            <p>
+              <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                  {{producto.ficha_tecnica}}
+                </font>
+              </font>
+            </p>
+          </div>
+          <!--/.Panel 2-->  
+      </div>
+    </div>
+</div>
